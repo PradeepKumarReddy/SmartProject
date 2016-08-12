@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xs:schema elementFormDefault="qualified" id="ServiceException" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.apmoller.net/ManagementFramework/ServiceException/v2" xmlns="http://services.apmoller.net/ManagementFramework/ServiceException/v2" version="2.0">
+<xs:element name="ServiceException" type="ServiceExceptionType"/>
+<xs:complexType name="ServiceExceptionType">
+<xs:sequence>
+<xs:element nillable="false" type="xs:string" name="ServiceName"/>
+<xs:element name="Error"  maxOccurs="unbounded">
+<xs:complexType>
+<xs:sequence>
+<xs:element nillable="false" type="xs:string" name="ErrorCode"/>
+<xs:element nillable="false" type="xs:string" name="ErrorDescription"/>
+<xs:element type="xs:string" name="OriginatingErrorCode" minOccurs="0"/>
+<xs:element type="xs:string" name="OriginatingErrorDescription" minOccurs="0"/>
+<xs:element type="xs:string" name="ECID" minOccurs="0"/>
+<xs:element type="xs:string" name="FaultName" minOccurs="0"/>
+<xs:element type="xs:string" name="InstanceID" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="BPMBusinessException" type="BPMBusinessExceptionType"/>
+<xs:complexType name="BPMBusinessExceptionType">
+<xs:sequence>
+<xs:element nillable="false" type="xs:string" name="deliveryOrderId"/>
+<xs:element name="customerCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+<xs:element nillable="false" type="xs:string" name="ErrorCode"/>
+<xs:element nillable="false" type="xs:string" name="ErrorDescription"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+

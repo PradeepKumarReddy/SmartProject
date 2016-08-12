@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://services.apmoller.net/AMM/DnDLegacyReference/v1" 
+			xmlns:AMM="http://services.apmoller.net/AMM/v4"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://services.apmoller.net/AMM/DnDLegacyReference/v1" 
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified" version="1.5.5"
+            >
+  <xsd:import namespace="http://services.apmoller.net/AMM/v4" schemaLocation="EAMBaseTypes.xsd"/>
+  <xsd:element name="PersistDnDCalculatorMessage" type="PersistDnDCalculatorMessageStructure"/>
+  <xsd:complexType name="PersistDnDCalculatorMessageStructure">
+    <xsd:sequence>
+      <xsd:element name="ShipmentNumber" type="AMM:String12NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ContainerNumber" type="AMM:String15NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="FMCRegulationFlag" type="AMM:BooleanType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="OceanFreightContractID" type="AMM:String20NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Consignee" type="AMM:String15NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CarrierCode" type="AMM:String4NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="PriceOwner" type="AMM:String15NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ShipperCode" type="AMM:String15NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DealOwnerCode" type="AMM:String15NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="PriceCalculationDate" type="AMM:DateTimeType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="DnDChargeType" type="AMM:String20NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="NamedAccount" type="AMM:String15NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Direction" type="AMM:String3NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="LocationCode" type="AMM:String7NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="PickupDropOffLocationCode" type="AMM:String7NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Origin" type="AMM:String7NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Destination" type="AMM:String7NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="POL" type="AMM:String7NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="POD" type="AMM:String7NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="MOT" type="AMM:String20NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ContainerSizeType" type="AMM:String10NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="NonOperating" type="AMM:BooleanType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Empty" type="AMM:BooleanType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ShipperOwned" type="AMM:BooleanType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CommodityCode" type="AMM:String20NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="UnGroup" type="AMM:String15NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ReceiptDeliveryType" type="AMM:String4NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="RefereshLogicFlag" type="AMM:BooleanType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="SaveResultFlag" type="AMM:BooleanType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="TransactionDate" type="AMM:BooleanType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ApplicationName" type="AMM:String20NonNullType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PersistDnDCalculatorRequest" type="PersistDnDCalculatorRequestType"/>
+  <xsd:complexType name="PersistDnDCalculatorRequestType">
+    <xsd:complexContent>
+      <xsd:extension base="PersistDnDCalculatorMessageStructure"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PersistDnDCalculatorResponse" type="PersistDnDCalculatorResponseType"/>
+  <xsd:complexType name="PersistDnDCalculatorResponseType">
+    <xsd:sequence>
+      <xsd:element name="Status" type="AMM:String10NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="Description" type="AMM:String30NonNullType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="EnquiryTariffAvailabilityMessage" type="EnquiryTariffAvailabilityMessageStructure"/>
+  <xsd:complexType name="EnquiryTariffAvailabilityMessageStructure">
+    <xsd:sequence>
+      <xsd:element name="LocationCode" type="AMM:String10NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ScSCVCode" type="AlternativeCodeCustomCodeValStructure" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CneeSCVCode" type="AlternativeCodeCustomCodeValStructure" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ShipperSCVCode" type="AlternativeCodeCustomCodeValStructure" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ContractValidityFromDate" type="AMM:DateTimeType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ContractValidityToDate" type="AMM:DateTimeType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ContractType" type="AMM:String20NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="LegactContractId" type="AMM:String20NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="OriginalSystemReff" type="AMM:String20NonNullType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AlternativeCodeCustomCodeValStructure">
+    <xsd:sequence>
+      <xsd:element name="AlternativeCodeVal" type="AMM:String10NonNullType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="LookupLegacyDealRequest" type="LookupLegacyDealRequestType"/>
+  <xsd:complexType name="LookupLegacyDealRequestType">
+    <xsd:sequence>
+      <xsd:element name="LocationCode" type="AMM:String10NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="Consignee" type="AMM:String10NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="PriceOwner" type="AMM:String10NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ShipperCode" type="AMM:String10NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TransactionDate" type="AMM:DateTimeType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="LookupLegacyDealResponse" type="LookupLegacyDealResponseType"/>
+  <xsd:complexType name="LookupLegacyDealResponseType">
+    <xsd:sequence>
+      <xsd:element name="Origin" type="AMM:String10NonNullType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="RetriveCalculatorDecisionRequest" type="RetriveCalculatorDecisionRequestType"/>
+  <xsd:complexType name="RetriveCalculatorDecisionRequestType">
+    <xsd:sequence>
+      <xsd:element name="ShipmentNumber" type="AMM:String12NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ContainerNumber" type="AMM:String15NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="CarrierCode" type="AMM:String4NonNullType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="RetriveCalculatorDecisionResponse" type="RetriveCalculatorDecisionResponseType"/>
+  <xsd:complexType name="RetriveCalculatorDecisionResponseType">
+    <xsd:sequence>
+      <xsd:element name="Status" type="AMM:String12NonNullType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ApplicationName" type="AMM:String15NonNullType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Description" type="AMM:String20NonNullType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+    <xsd:complexType name="RetriveCalculatorDecisionRequest">
+    <xsd:sequence>
+      <xsd:element name="retriveCalculatorDecisionRequestType" type="RetriveCalculatorDecisionRequestType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="RetriveCalculatorDecisionResponse">
+    <xsd:sequence>
+      <xsd:element name="retriveCalculatorDecisionResponseType" type="RetriveCalculatorDecisionResponseType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

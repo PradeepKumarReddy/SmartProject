@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns="http://services.apmoller.net/AMM/v4"
+	xmlns:AMM="http://services.apmoller.net/AMM/v4" xmlns:amm="http://services.apmoller.net/AMM/v4"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.apmoller.net/AMM/v4"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	version="4.24.0" id="EAMBaseTypes">
+	<xsd:simpleType name="BooleanFalseType">
+		<xsd:restriction base="xsd:boolean">
+			<xsd:pattern value="false" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BooleanTrueType">
+		<xsd:restriction base="xsd:boolean">
+			<xsd:pattern value="true" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="BooleanType">
+		<xsd:union memberTypes="BooleanFalseType BooleanTrueType" />
+	</xsd:simpleType>
+	<xsd:simpleType name="DateTimeType">
+		<xsd:restriction base="xsd:dateTime" />
+	</xsd:simpleType>
+	<xsd:simpleType name="RestrictedStringType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern
+				value="[A-Za-z0-9\s~!&quot;@#$%&amp;'\(\)\*\+,\-\./:;&lt;=>\?\[\\\]_\{\}\^£€]*" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String10NonNullType">
+		<xsd:restriction base="UnRestrictedStringType">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="10" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String12NonNullType">
+		<xsd:restriction base="UnRestrictedStringType">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="12" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String15NonNullType">
+		<xsd:restriction base="UnRestrictedStringType">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="15" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String20NonNullType">
+		<xsd:restriction base="UnRestrictedStringType">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="20" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String30NonNullType">
+		<xsd:restriction base="UnRestrictedStringType">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="30" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String3NonNullType">
+		<xsd:restriction base="UnRestrictedStringType">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="3" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String4NonNullType">
+		<xsd:restriction base="UnRestrictedStringType">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="4" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String5NonNullType">
+		<xsd:restriction base="UnRestrictedStringType">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="5" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String7NonNullType">
+		<xsd:restriction base="UnRestrictedStringType">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="7" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="UnRestrictedStringType">
+		<xsd:restriction base="xsd:string" />
+	</xsd:simpleType>
+</xsd:schema>
